@@ -20,11 +20,25 @@ function setupDateInputs(startInput, endInput) {
   startInput.value = lastWeek.toISOString().split('T')[0];
   endInput.value = today;
 
+  // Prevent picking an end date before the selected start date
+  endInput.min = startInput.value;
+
   // Automatically adjust end date to show exactly 9 days of images
   startInput.addEventListener('change', () => {
     const startDate = new Date(startInput.value);
     const endDate = new Date(startDate);
     endDate.setDate(startDate.getDate() + 8);
+
+    // Keep end date picker limited to dates on/after the selected start date
+    endInput.min = startInput.value;
+
     endInput.value = endDate > new Date(today) ? today : endDate.toISOString().split('T')[0];
+  });
+
+  // Safety check for manual typing: if end date is before start date, snap it back
+  endInput.addEventListener('change', () => {
+    if (endInput.value < startInput.value) {
+      endInput.value = startInput.value;
+    }
   });
 }

@@ -20,14 +20,31 @@
     </div>
 
     <div id="gallery" class="gallery">
+     <!-- Gallery container -->
       <div class="placeholder">
         <div class="placeholder-icon">🔭</div>
         <p>Select a date range and click "Get Space Images" to explore the cosmos!</p>
       </div>
     </div>
+
+    <!-- Loading message shown while API data is loading -->
+    <div id="loadingMessage" class="loading-message" style="display: none;">
+      <p>Loading space images...</p>
+    </div>
   </div>
 
   <script src="js/dateRange.js"></script>
+    <!-- Modal for viewing full-size images -->
+    <div id="imageModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <button class="close-button" aria-label="Close modal">&times;</button>
+        <div id="modalMedia" class="modal-media"></div>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDate"></p>
+        <p id="modalExplanation"></p>
+        <a id="modalMediaButton" class="media-link-button modal-media-button" href="#" target="_blank" rel="noopener noreferrer">View Media</a>
+      </div>
+    </div>
   <script src="js/script.js"></script>
 </body>
 </html>

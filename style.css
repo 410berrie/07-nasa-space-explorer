@@ -130,6 +130,60 @@ button:hover {
   font-size: 14px;
 }
 
+.gallery-item h3 {
+  margin-top: 10px;
+  padding: 0 5px;
+  font-size: 16px;
+  color: #212121;
+}
+
+.video-preview {
+  width: 100%;
+  height: 200px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #0B3D91, #1f5fbf);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  letter-spacing: 0.4px;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 4px;
+  background-color: #0B3D91;
+  padding: 20px;
+}
+
+.gallery-item img.video-placeholder {
+  object-fit: contain;
+  height: 200px;
+}
+
+.media-link-button {
+  margin: 10px 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #FC3D21;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.media-link-button:hover {
+  background-color: #d9351d;
+}
+
+.modal-media-button {
+  display: inline-block;
+  margin-top: 5px;
+}
+
 /* Placeholder content */
 .placeholder {
   flex: 1 1 100%;
@@ -142,3 +196,161 @@ button:hover {
   font-size: 48px;
   margin-bottom: 20px;
 }
+
+  /* Loading message styles */
+  .loading-message {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 18px;
+    color: #0B3D91;  /* NASA blue */
+    font-weight: bold;
+  }
+
+  /* Gallery flex container */
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+
+  /* Gallery items */
+  .gallery-item {
+    flex: 1 1 100%;  /* full width by default */
+    min-width: 280px;
+    max-width: 500px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(11, 61, 145, 0.15);  /* NASA blue tinted shadow */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Gallery item hover: scale entire card */
+  .gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(11, 61, 145, 0.25);
+  }
+
+  /* Three columns on wider screens */
+  @media (min-width: 1000px) {
+    .gallery-item {
+      flex: 0 1 31%;
+    }
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .gallery-item h3 {
+    margin-top: 10px;
+    padding: 0 5px;
+    font-size: 16px;
+    color: #212121;
+  }
+
+  .gallery-item p {
+    margin-top: 5px;
+    padding: 0 5px;
+    font-size: 14px;
+    color: #0B3D91;  /* NASA blue for dates */
+    font-weight: 500;
+  }
+
+  /* Modal styling */
+  .modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-content {
+    background-color: white;
+    padding: 40px 30px 30px 30px;
+    border-radius: 8px;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    width: 90%;
+  }
+
+  .modal-media {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .modal-media img,
+  .modal-media iframe {
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .modal-media iframe {
+    height: 400px;
+    border: none;
+  }
+
+  .modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #212121;
+  }
+
+  .modal-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 15px;
+  }
+
+  #modalDate {
+    font-weight: bold;
+    color: #0B3D91;  /* NASA blue */
+  }
+
+  /* Close button with high contrast NASA colors */
+  .close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background-color: #0B3D91;  /* NASA blue */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 0;
+  }
+
+  .close-button:hover {
+    background-color: #FC3D21;  /* NASA red */
+    transform: scale(1.1);
+  }
+
+  .close-button:active {
+    transform: scale(0.95);
+  }
